@@ -1,22 +1,69 @@
-# @robingenz/capacitor-badge
+<p align="center"><br><img src="https://user-images.githubusercontent.com/236501/85893648-1c92e880-b7a8-11ea-926d-95355b8175c7.png" width="128" height="128" /></p>
+<h3 align="center">Badge</h3>
+<p align="center"><strong><code>@robingenz/capacitor-badge</code></strong></p>
+<p align="center">
+  Capacitor plugin to access and update the badge number of the app icon.
+</p>
 
-⚡️ Capacitor plugin to access and update the badge number of the app icon.
+<p align="center">
+  <img src="https://img.shields.io/maintenance/yes/2021?style=flat-square" />
+  <a href="https://github.com/robingenz/capacitor-badge/actions?query=workflow%3A%22CI%22"><img src="https://img.shields.io/github/workflow/status/robingenz/capacitor-badge/CI/main?style=flat-square" /></a>
+  <a href="https://www.npmjs.com/package/@robingenz/capacitor-badge"><img src="https://img.shields.io/npm/l/@robingenz/capacitor-badge?style=flat-square" /></a>
+<br>
+  <a href="https://www.npmjs.com/package/@robingenz/capacitor-badge"><img src="https://img.shields.io/npm/dw/@robingenz/capacitor-badge?style=flat-square" /></a>
+  <a href="https://www.npmjs.com/package/@robingenz/capacitor-badge"><img src="https://img.shields.io/npm/v/@robingenz/capacitor-badge?style=flat-square" /></a>
+<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+<a href="#contributors-"><img src="https://img.shields.io/badge/all%20contributors-1-orange?style=flat-square" /></a>
+<!-- ALL-CONTRIBUTORS-BADGE:END -->
+</p>
 
-## Install
+## Maintainers
+
+| Maintainer | GitHub                                    | Social                                        |
+| ---------- | ----------------------------------------- | --------------------------------------------- |
+| Robin Genz | [robingenz](https://github.com/robingenz) | [@robin_genz](https://twitter.com/robin_genz) |
+
+## Installation
 
 ```bash
 npm install @robingenz/capacitor-badge
 npx cap sync
 ```
 
+## Configuration
+
+No configuration required for this plugin.
+
+## Demo
+
+A working example can be found here: [robingenz/capacitor-plugin-demo](https://github.com/robingenz/capacitor-plugin-demo)
+
+## Usage
+
+```typescript
+import { Badge } from '@robingenz/capacitor-badge';
+
+const get = async () => {
+  const count = await Badge.get();
+};
+
+const set = async (count: number) => {
+  await Badge.set({ count });
+};
+
+const clear = async () => {
+  await Badge.clear();
+};
+```
+
 ## API
 
 <docgen-index>
 
-* [`get()`](#get)
-* [`set(...)`](#set)
-* [`clear()`](#clear)
-* [Interfaces](#interfaces)
+- [`get()`](#get)
+- [`set(...)`](#set)
+- [`clear()`](#clear)
+- [Interfaces](#interfaces)
 
 </docgen-index>
 
@@ -36,8 +83,7 @@ Default: `0`.
 
 **Returns:** <code>Promise&lt;<a href="#getbadgeresult">GetBadgeResult</a>&gt;</code>
 
---------------------
-
+---
 
 ### set(...)
 
@@ -51,8 +97,7 @@ Set the badge count.
 | ------------- | ----------------------------------------------------------- |
 | **`options`** | <code><a href="#setbadgeoptions">SetBadgeOptions</a></code> |
 
---------------------
-
+---
 
 ### clear()
 
@@ -62,18 +107,15 @@ clear() => Promise<void>
 
 Clear the badge count.
 
---------------------
-
+---
 
 ### Interfaces
-
 
 #### GetBadgeResult
 
 | Prop        | Type                |
 | ----------- | ------------------- |
 | **`count`** | <code>number</code> |
-
 
 #### SetBadgeOptions
 
@@ -82,3 +124,11 @@ Clear the badge count.
 | **`count`** | <code>number</code> |
 
 </docgen-api>
+
+## Changelog
+
+See [CHANGELOG.md](https://github.com/robingenz/capacitor-badge/blob/master/CHANGELOG.md).
+
+## License
+
+See [LICENSE](https://github.com/robingenz/capacitor-badge/blob/master/LICENSE).

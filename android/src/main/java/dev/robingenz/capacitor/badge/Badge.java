@@ -1,5 +1,7 @@
 package dev.robingenz.capacitor.badge;
 
+import static me.leolin.shortcutbadger.ShortcutBadger.isBadgeCounterSupported;
+
 import android.content.Context;
 import android.content.SharedPreferences;
 import me.leolin.shortcutbadger.ShortcutBadger;
@@ -10,7 +12,11 @@ public class Badge {
     private Context context;
 
     Badge(Context context) {
-        this.context = context;
+        if (isBadgeCounterSupported(context)) {
+            this.context = context;
+        } else {
+            this.context = context.getApplicationContext();
+        }
         restore();
     }
 

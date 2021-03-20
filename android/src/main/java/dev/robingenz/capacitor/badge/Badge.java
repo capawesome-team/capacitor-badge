@@ -14,11 +14,11 @@ public class Badge {
         restore();
     }
 
-    public Integer get() {
+    public int get() {
         return getPrefs().getInt(STORAGE_KEY, 0);
     }
 
-    public void set(Integer count) {
+    public void set(int count) {
         SharedPreferences.Editor editor = getPrefs().edit();
         editor.putInt(STORAGE_KEY, count);
         editor.apply();
@@ -30,7 +30,7 @@ public class Badge {
     }
 
     private void restore() {
-        Integer count = get();
+        int count = get();
         ShortcutBadger.applyCount(context, count);
     }
 

@@ -20,7 +20,7 @@ public class BadgePlugin extends Plugin {
     @PluginMethod
     public void get(PluginCall call) {
         try {
-            Integer count = implementation.get();
+            int count = implementation.get();
             JSObject ret = new JSObject();
             ret.put("count", count);
             call.resolve(ret);
@@ -32,7 +32,7 @@ public class BadgePlugin extends Plugin {
     @PluginMethod
     public void set(PluginCall call) {
         try {
-            Integer count = call.getInt("count", 0);
+            int count = call.getInt("count", 0);
             implementation.set(count);
             call.resolve();
         } catch (Exception ex) {

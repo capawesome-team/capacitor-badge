@@ -7,7 +7,7 @@ import type {
 } from './definitions';
 
 export class BadgeWeb extends WebPlugin implements BadgePlugin {
-  private static STORAGE_KEY: string = 'capacitor.badge';
+  private static STORAGE_KEY = 'capacitor.badge';
 
   constructor() {
     super();

@@ -8,6 +8,7 @@ import com.getcapacitor.annotation.CapacitorPlugin;
 
 @CapacitorPlugin(name = "Badge")
 public class BadgePlugin extends Plugin {
+
     private Badge implementation;
 
     @Override

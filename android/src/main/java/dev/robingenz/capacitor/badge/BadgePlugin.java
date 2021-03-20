@@ -9,14 +9,43 @@ import com.getcapacitor.annotation.CapacitorPlugin;
 @CapacitorPlugin(name = "Badge")
 public class BadgePlugin extends Plugin {
 
-    private Badge implementation = new Badge();
+    private Badge implementation;
+
+    @Override
+    public void load() {
+        implementation = new Badge(getContext());
+    }
 
     @PluginMethod
-    public void echo(PluginCall call) {
-        String value = call.getString("value");
+    public void get(PluginCall call) {
+        try {
+            Integer count = implementation.get();
+            JSObject ret = new JSObject();
+            ret.put("count", count);
+            call.resolve(ret);
+        } catch (Exception ex) {
+            call.reject(ex.getLocalizedMessage());
+        }
+    }
 
-        JSObject ret = new JSObject();
-        ret.put("value", implementation.echo(value));
-        call.resolve(ret);
+    @PluginMethod
+    public void set(PluginCall call) {
+        try {
+            Integer count = call.getInt("count", 0);
+            implementation.set(count);
+            call.resolve();
+        } catch (Exception ex) {
+            call.reject(ex.getLocalizedMessage());
+        }
+    }
+
+    @PluginMethod
+    public void clear(PluginCall call) {
+        try {
+            implementation.clear();
+            call.resolve();
+        } catch (Exception ex) {
+            call.reject(ex.getLocalizedMessage());
+        }
     }
 }

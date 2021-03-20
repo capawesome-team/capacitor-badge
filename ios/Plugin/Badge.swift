@@ -12,6 +12,31 @@ import Capacitor
         restore()
     }
     
+    @objc public func requestPermissions(completion: @escaping (_ granted: Bool, _ error: Error?) -> Void) {
+        UNUserNotificationCenter.current().requestAuthorization(options: .badge) { granted, error in
+            completion(granted, error)
+        }
+    }
+    
+    @objc public func checkPermissions(completion: @escaping (_ status: String) -> Void) {
+        UNUserNotificationCenter.current().getNotificationSettings { settings in
+            let permission: String
+
+            switch settings.authorizationStatus {
+            case .authorized, .ephemeral, .provisional:
+                permission = "granted"
+            case .denied:
+                permission = "denied"
+            case .notDetermined:
+                permission = "prompt"
+            @unknown default:
+                permission = "prompt"
+            }
+
+            completion(permission)
+        }
+    }
+    
     @objc public func get() -> Int {
         return defaults.integer(forKey: STORAGE_KEY)
     }

@@ -26,7 +26,7 @@
 ## Installation
 
 ```bash
-npm install @robingenz/capacitor-badge
+npm install @robingenz/capacitor-badge@next
 npx cap sync
 ```
 

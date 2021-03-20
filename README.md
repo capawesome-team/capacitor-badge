@@ -1,6 +1,6 @@
 # @robingenz/capacitor-badge
 
-Capacitor plugin
+⚡️ Capacitor plugin to access and update the badge number of the app icon.
 
 ## Install
 

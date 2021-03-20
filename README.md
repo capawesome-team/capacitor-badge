@@ -60,10 +60,13 @@ const clear = async () => {
 
 <docgen-index>
 
-- [`get()`](#get)
-- [`set(...)`](#set)
-- [`clear()`](#clear)
-- [Interfaces](#interfaces)
+* [`get()`](#get)
+* [`set(...)`](#set)
+* [`clear()`](#clear)
+* [`checkPermissions()`](#checkpermissions)
+* [`requestPermissions()`](#requestpermissions)
+* [Interfaces](#interfaces)
+* [Type Aliases](#type-aliases)
 
 </docgen-index>
 
@@ -83,7 +86,8 @@ Default: `0`.
 
 **Returns:** <code>Promise&lt;<a href="#getbadgeresult">GetBadgeResult</a>&gt;</code>
 
----
+--------------------
+
 
 ### set(...)
 
@@ -97,7 +101,8 @@ Set the badge count.
 | ------------- | ----------------------------------------------------------- |
 | **`options`** | <code><a href="#setbadgeoptions">SetBadgeOptions</a></code> |
 
----
+--------------------
+
 
 ### clear()
 
@@ -107,9 +112,37 @@ clear() => Promise<void>
 
 Clear the badge count.
 
----
+--------------------
+
+
+### checkPermissions()
+
+```typescript
+checkPermissions() => Promise<PermissionStatus>
+```
+
+Check permission to display badge.
+
+**Returns:** <code>Promise&lt;<a href="#permissionstatus">PermissionStatus</a>&gt;</code>
+
+--------------------
+
+
+### requestPermissions()
+
+```typescript
+requestPermissions() => Promise<PermissionStatus>
+```
+
+Request permission to display badge.
+
+**Returns:** <code>Promise&lt;<a href="#permissionstatus">PermissionStatus</a>&gt;</code>
+
+--------------------
+
 
 ### Interfaces
+
 
 #### GetBadgeResult
 
@@ -117,13 +150,33 @@ Clear the badge count.
 | ----------- | ------------------- |
 | **`count`** | <code>number</code> |
 
+
 #### SetBadgeOptions
 
 | Prop        | Type                |
 | ----------- | ------------------- |
 | **`count`** | <code>number</code> |
 
+
+#### PermissionStatus
+
+| Prop          | Type                                                        | Description                               |
+| ------------- | ----------------------------------------------------------- | ----------------------------------------- |
+| **`display`** | <code><a href="#permissionstate">PermissionState</a></code> | Permission state of displaying the badge. |
+
+
+### Type Aliases
+
+
+#### PermissionState
+
+<code>'prompt' | 'prompt-with-rationale' | 'granted' | 'denied'</code>
+
 </docgen-api>
+
+## Quirks
+
+On **Android** not all launchers support badges. This plugin uses [ShortcutBadger](https://github.com/leolin310148/ShortcutBadger). All supported launchers are listed [there](https://github.com/leolin310148/ShortcutBadger#supported-launchers).
 
 ## Changelog
 

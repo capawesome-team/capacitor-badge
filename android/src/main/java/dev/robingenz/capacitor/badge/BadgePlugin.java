@@ -5,8 +5,9 @@ import com.getcapacitor.Plugin;
 import com.getcapacitor.PluginCall;
 import com.getcapacitor.PluginMethod;
 import com.getcapacitor.annotation.CapacitorPlugin;
+import com.getcapacitor.annotation.Permission;
 
-@CapacitorPlugin(name = "Badge")
+@CapacitorPlugin(name = "Badge", permissions = @Permission(strings = {}, alias = "display"))
 public class BadgePlugin extends Plugin {
 
     private Badge implementation;

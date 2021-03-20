@@ -1,3 +1,5 @@
+import type { PermissionState } from '@capacitor/core';
+
 export interface BadgePlugin {
   /**
    * Get the badge count.
@@ -14,6 +16,14 @@ export interface BadgePlugin {
    * Clear the badge count.
    */
   clear(): Promise<void>;
+  /**
+   * Check permission to display badge.
+   */
+  checkPermissions(): Promise<PermissionStatus>;
+  /**
+   * Request permission to display badge.
+   */
+  requestPermissions(): Promise<PermissionStatus>;
 }
 
 export interface GetBadgeResult {
@@ -22,4 +32,11 @@ export interface GetBadgeResult {
 
 export interface SetBadgeOptions {
   count: number;
+}
+
+export interface PermissionStatus {
+  /**
+   * Permission state of displaying the badge.
+   */
+  display: PermissionState;
 }

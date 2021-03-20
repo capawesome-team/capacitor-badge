@@ -4,6 +4,7 @@ import type {
   BadgePlugin,
   GetBadgeResult,
   SetBadgeOptions,
+  PermissionStatus,
 } from './definitions';
 
 export class BadgeWeb extends WebPlugin implements BadgePlugin {
@@ -12,6 +13,14 @@ export class BadgeWeb extends WebPlugin implements BadgePlugin {
   constructor() {
     super();
     this.restore();
+  }
+
+  public async checkPermissions(): Promise<PermissionStatus> {
+    return { display: 'granted' };
+  }
+
+  public async requestPermissions(): Promise<PermissionStatus> {
+    return { display: 'granted' };
   }
 
   public async get(): Promise<GetBadgeResult> {

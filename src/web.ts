@@ -7,24 +7,41 @@ import type {
 } from './definitions';
 
 export class BadgeWeb extends WebPlugin implements BadgePlugin {
-  private count: number = 0;
+  private static STORAGE_KEY: string = 'capacitor.badge';
 
   constructor() {
     super();
+    this.restore();
   }
 
   public async get(): Promise<GetBadgeResult> {
-    return { count: this.count };
+    const value = localStorage.getItem(BadgeWeb.STORAGE_KEY);
+    const count = value ? parseInt(value, 10) : 0;
+    return { count };
   }
 
   public async set(options: SetBadgeOptions): Promise<void> {
-    this.count = options.count;
-    await navigator.setAppBadge(options.count);
+    const count = options.count;
+    if (count === 0) {
+      await navigator.clearAppBadge();
+    } else {
+      await navigator.setAppBadge(count);
+    }
+    const value = count.toString();
+    localStorage.setItem(BadgeWeb.STORAGE_KEY, value);
   }
 
   public async clear(): Promise<void> {
-    this.count = 0;
-    await navigator.clearAppBadge();
+    await this.set({ count: 0 });
+  }
+
+  private async restore(): Promise<void> {
+    const value = localStorage.getItem(BadgeWeb.STORAGE_KEY);
+    if (!value) {
+      return;
+    }
+    const count = parseInt(value, 10);
+    await navigator.setAppBadge(count);
   }
 }
 

@@ -1,8 +1,7 @@
 export interface BadgePlugin {
   /**
    * Get the badge count.
-   * On Android and iOS, the badge count won't be lost after a reboot or app restart.
-   * On the Web, the badge count is lost after closing the PWA.
+   * The badge count won't be lost after a reboot or app restart.
    *
    * Default: `0`.
    */

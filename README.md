@@ -44,7 +44,7 @@ A working example can be found here: [robingenz/capacitor-plugin-demo](https://g
 import { Badge } from '@robingenz/capacitor-badge';
 
 const get = async () => {
-  const count = await Badge.get();
+  const result = await Badge.get();
 };
 
 const set = async (count: number) => {
@@ -53,6 +53,14 @@ const set = async (count: number) => {
 
 const clear = async () => {
   await Badge.clear();
+};
+
+const checkPermissions = async () => {
+  const result = await Badge.checkPermissions();
+};
+
+const requestPermissions = async () => {
+  const result = await Badge.requestPermissions();
 };
 ```
 

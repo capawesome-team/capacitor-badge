@@ -1,6 +1,6 @@
 {
   "name": "@robingenz/capacitor-badge",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Capacitor plugin to access and update the badge number of the app icon.",
   "main": "dist/plugin.cjs.js",
   "module": "dist/esm/index.js",

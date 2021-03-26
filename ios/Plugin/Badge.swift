@@ -2,7 +2,7 @@ import Foundation
 import Capacitor
 
 @objc public class Badge: NSObject {
-    private let STORAGE_KEY = "capacitor.badge"
+    private let storageKey = "capacitor.badge"
     private var defaults: UserDefaults {
         return UserDefaults.standard
     }
@@ -38,7 +38,7 @@ import Capacitor
     }
     
     @objc public func get() -> Int {
-        return defaults.integer(forKey: STORAGE_KEY)
+        return defaults.integer(forKey: storageKey)
     }
     
     @objc public func set(count: Int, completion: @escaping () -> Void) {
@@ -47,7 +47,7 @@ import Capacitor
                 return
             }
             UIApplication.shared.applicationIconBadgeNumber = count
-            strongSelf.defaults.set(count, forKey: strongSelf.STORAGE_KEY)
+            strongSelf.defaults.set(count, forKey: strongSelf.storageKey)
             completion()
         }
     }

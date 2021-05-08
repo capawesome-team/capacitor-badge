@@ -29,7 +29,7 @@ insert short code snippets here
 ```
 
 **Other information:**
-<!-- List any other information that is relevant to your issue. Stack traces, screenshots, related issues, etc. -->
+<!-- List any other information that is relevant to your issue. Device information, stack traces, screenshots, related issues, etc. -->
 
 
 

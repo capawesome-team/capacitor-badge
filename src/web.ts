@@ -3,8 +3,8 @@ import { WebPlugin } from '@capacitor/core';
 import type {
   BadgePlugin,
   GetBadgeResult,
-  SetBadgeOptions,
   PermissionStatus,
+  SetBadgeOptions,
 } from './definitions';
 
 export class BadgeWeb extends WebPlugin implements BadgePlugin {
@@ -38,6 +38,19 @@ export class BadgeWeb extends WebPlugin implements BadgePlugin {
     }
     const value = count.toString();
     localStorage.setItem(BadgeWeb.STORAGE_KEY, value);
+  }
+
+  public async increase(): Promise<void> {
+    const { count } = await this.get();
+    await this.set({ count: count + 1 });
+  }
+
+  public async decrease(): Promise<void> {
+    const { count } = await this.get();
+    if (count < 1) {
+      return;
+    }
+    await this.set({ count: count - 1 });
   }
 
   public async clear(): Promise<void> {

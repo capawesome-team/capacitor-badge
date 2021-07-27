@@ -3,6 +3,7 @@ import { WebPlugin } from '@capacitor/core';
 import type {
   BadgePlugin,
   GetBadgeResult,
+  IsSupportedResult,
   PermissionStatus,
   SetBadgeOptions,
 } from './definitions';
@@ -55,6 +56,13 @@ export class BadgeWeb extends WebPlugin implements BadgePlugin {
 
   public async clear(): Promise<void> {
     await this.set({ count: 0 });
+  }
+
+  public async isSupported(): Promise<IsSupportedResult> {
+    const result = {
+      isSupported: 'setAppBadge' in navigator
+    };
+    return result;
   }
 
   private async restore(): Promise<void> {

@@ -15,7 +15,7 @@ import Capacitor
             restore()
         }
     }
-    
+
     @objc public func handleOnResume() {
         if config.autoClear {
             set(count: 0, completion: {})

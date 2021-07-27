@@ -106,7 +106,7 @@ public class BadgePlugin: CAPPlugin {
             "isSupported": isSupported ?? false
         ])
     }
-    
+
     @objc private func onResume() {
         implementation?.handleOnResume()
     }

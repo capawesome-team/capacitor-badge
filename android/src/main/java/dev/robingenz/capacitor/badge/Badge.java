@@ -4,9 +4,7 @@ import static me.leolin.shortcutbadger.ShortcutBadger.isBadgeCounterSupported;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-
 import com.getcapacitor.Logger;
-
 import me.leolin.shortcutbadger.ShortcutBadger;
 
 public class Badge {

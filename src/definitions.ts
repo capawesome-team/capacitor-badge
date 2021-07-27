@@ -13,6 +13,14 @@ export interface BadgePlugin {
    */
   set(options: SetBadgeOptions): Promise<void>;
   /**
+   * Increase the badge count.
+   */
+  increase(): Promise<void>;
+  /**
+   * Decrease the badge count.
+   */
+  decrease(): Promise<void>;
+  /**
    * Clear the badge count.
    */
   clear(): Promise<void>;

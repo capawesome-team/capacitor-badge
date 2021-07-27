@@ -50,6 +50,36 @@ public class BadgePlugin: CAPPlugin {
         })
     }
     
+    @objc func increase(_ call: CAPPluginCall) {
+        implementation.requestPermissions(completion: { [weak self] granted, error in
+            guard let strongSelf = self else {
+                return
+            }
+            guard error == nil else {
+                call.reject(error!.localizedDescription)
+                return
+            }
+            strongSelf.implementation.increase(completion: {
+                call.resolve()
+            })
+        })
+    }
+    
+    @objc func decrease(_ call: CAPPluginCall) {
+        implementation.requestPermissions(completion: { [weak self] granted, error in
+            guard let strongSelf = self else {
+                return
+            }
+            guard error == nil else {
+                call.reject(error!.localizedDescription)
+                return
+            }
+            strongSelf.implementation.decrease(completion: {
+                call.resolve()
+            })
+        })
+    }
+    
     @objc func clear(_ call: CAPPluginCall) {
         implementation.requestPermissions(completion: { [weak self] granted, error in
             guard let strongSelf = self else {

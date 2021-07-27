@@ -41,6 +41,26 @@ public class BadgePlugin extends Plugin {
     }
 
     @PluginMethod
+    public void increase(PluginCall call) {
+        try {
+            implementation.increase();
+            call.resolve();
+        } catch (Exception ex) {
+            call.reject(ex.getLocalizedMessage());
+        }
+    }
+
+    @PluginMethod
+    public void decrease(PluginCall call) {
+        try {
+            implementation.decrease();
+            call.resolve();
+        } catch (Exception ex) {
+            call.reject(ex.getLocalizedMessage());
+        }
+    }
+
+    @PluginMethod
     public void clear(PluginCall call) {
         try {
             implementation.clear();

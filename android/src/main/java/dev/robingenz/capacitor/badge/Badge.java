@@ -31,6 +31,19 @@ public class Badge {
         ShortcutBadger.applyCount(context, count);
     }
 
+    public void increase() {
+        int count = get();
+        set(count + 1);
+    }
+
+    public void decrease() {
+        int count = get();
+        if (count < 1) {
+            return;
+        }
+        set(count - 1);
+    }
+
     public void clear() {
         set(0);
     }

@@ -52,6 +52,20 @@ import Capacitor
         }
     }
     
+    @objc public func increase(completion: @escaping () -> Void) {
+        let count = get()
+        set(count: count + 1, completion: completion)
+    }
+    
+    @objc public func decrease(completion: @escaping () -> Void) {
+        let count = get()
+        if (count < 1) {
+            completion()
+            return
+        }
+        set(count: count - 1, completion: completion)
+    }
+    
     @objc public func clear(completion: @escaping () -> Void) {
         set(count: 0, completion: completion)
     }

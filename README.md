@@ -37,7 +37,48 @@ This plugin will use the following project variables (defined in your app’s `v
 
 ## Configuration
 
-No configuration required for this plugin.
+<docgen-config>
+<!--Update the source file JSDoc comments and rerun docgen to update the docs below-->
+
+These configuration values are available:
+
+| Prop          | Type                 | Description                                                                            | Default           |
+| ------------- | -------------------- | -------------------------------------------------------------------------------------- | ----------------- |
+| **`persist`** | <code>boolean</code> | Configure whether the plugin should restore the counter after a reboot or app restart. | <code>true</code> |
+
+### Examples
+
+In `capacitor.config.json`:
+
+```json
+{
+  "plugins": {
+    "Badge": {
+      "persist": true
+    }
+  }
+}
+```
+
+In `capacitor.config.ts`:
+
+```ts
+/// <reference types="@capacitor/badge" />
+
+import { CapacitorConfig } from '@capacitor/cli';
+
+const config: CapacitorConfig = {
+  plugins: {
+    Badge: {
+      persist: true,
+    },
+  },
+};
+
+export default config;
+```
+
+</docgen-config>
 
 ## Demo
 

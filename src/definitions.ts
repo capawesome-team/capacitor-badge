@@ -1,4 +1,23 @@
+/// <reference types="@capacitor/cli" />
+
 import type { PermissionState } from '@capacitor/core';
+
+declare module '@capacitor/cli' {
+  export interface PluginsConfig {
+    /**
+     * These configuration values are available:
+     */
+     Badge?: {
+      /**
+       * Configure whether the plugin should restore the counter after a reboot or app restart.
+       *
+       * @default true
+       * @example true
+       */
+       persist?: boolean;
+    };
+  }
+}
 
 export interface BadgePlugin {
   /**

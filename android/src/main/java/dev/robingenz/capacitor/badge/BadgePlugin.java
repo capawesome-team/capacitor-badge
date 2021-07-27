@@ -69,4 +69,16 @@ public class BadgePlugin extends Plugin {
             call.reject(ex.getLocalizedMessage());
         }
     }
+
+    @PluginMethod
+    public void isSupported(PluginCall call) {
+        try {
+            boolean isSupported = implementation.isSupported();
+            JSObject ret = new JSObject();
+            ret.put("isSupported", isSupported);
+            call.resolve(ret);
+        } catch (Exception ex) {
+            call.reject(ex.getLocalizedMessage());
+        }
+    }
 }

@@ -50,14 +50,28 @@ import { Badge } from '@robingenz/capacitor-badge';
 
 const get = async () => {
   const result = await Badge.get();
+  return result.count;
 };
 
 const set = async (count: number) => {
   await Badge.set({ count });
 };
 
+const increase = async () => {
+  await Badge.increase();
+};
+
+const decrease = async () => {
+  await Badge.decrease();
+};
+
 const clear = async () => {
   await Badge.clear();
+};
+
+const isSupported = async () => {
+  const result = await Badge.isSupported();
+  return result.isSupported;
 };
 
 const checkPermissions = async () => {

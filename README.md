@@ -33,7 +33,7 @@ npx cap sync
 ### Android Variables
 
 This plugin will use the following project variables (defined in your app’s `variables.gradle` file):
-- `$meLeolinShortcutBadgerVersion` version of `me.leolin:ShortcutBadger` (default: `1.1.22`)
+- `$shortcutBadgerVersion` version of `me.leolin:ShortcutBadger` (default: `1.1.22`)
 
 ## Configuration
 

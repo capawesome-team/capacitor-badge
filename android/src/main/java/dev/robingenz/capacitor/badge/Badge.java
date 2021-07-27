@@ -22,7 +22,7 @@ public class Badge {
         } else {
             this.context = context.getApplicationContext();
         }
-        boolean restoreCount = this.config.getPersist() && this.config.getAutoClear() == false;
+        boolean restoreCount = this.config.getPersist();
         if (restoreCount) {
             restore();
         }

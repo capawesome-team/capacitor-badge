@@ -48,6 +48,16 @@ public class Badge {
         set(0);
     }
 
+    public boolean isSupported() {
+        int count = get();
+        // Doing this check causes the side effect of resetting the counter if it's supported.
+        boolean isSupported = ShortcutBadger.isBadgeCounterSupported(context);
+        if (isSupported) {
+            set(count);
+        }
+        return isSupported;
+    }
+
     private void restore() {
         int count = get();
         ShortcutBadger.applyCount(context, count);

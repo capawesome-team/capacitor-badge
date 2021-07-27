@@ -6,18 +6,18 @@ import Capacitor
     private var defaults: UserDefaults {
         return UserDefaults.standard
     }
-    
+
     override init() {
         super.init()
         restore()
     }
-    
+
     @objc public func requestPermissions(completion: @escaping (_ granted: Bool, _ error: Error?) -> Void) {
         UNUserNotificationCenter.current().requestAuthorization(options: .badge) { granted, error in
             completion(granted, error)
         }
     }
-    
+
     @objc public func checkPermissions(completion: @escaping (_ status: String) -> Void) {
         UNUserNotificationCenter.current().getNotificationSettings { settings in
             let permission: String
@@ -36,11 +36,11 @@ import Capacitor
             completion(permission)
         }
     }
-    
+
     @objc public func get() -> Int {
         return defaults.integer(forKey: storageKey)
     }
-    
+
     @objc public func set(count: Int, completion: @escaping () -> Void) {
         DispatchQueue.main.async { [weak self] in
             guard let strongSelf = self else {
@@ -51,25 +51,29 @@ import Capacitor
             completion()
         }
     }
-    
+
     @objc public func increase(completion: @escaping () -> Void) {
         let count = get()
         set(count: count + 1, completion: completion)
     }
-    
+
     @objc public func decrease(completion: @escaping () -> Void) {
         let count = get()
-        if (count < 1) {
+        if count < 1 {
             completion()
             return
         }
         set(count: count - 1, completion: completion)
     }
-    
+
     @objc public func clear(completion: @escaping () -> Void) {
         set(count: 0, completion: completion)
     }
-    
+
+    @objc public func isSupported() -> Bool {
+        return true
+    }
+
     @objc private func restore() {
         let count = get()
         set(count: count, completion: {})

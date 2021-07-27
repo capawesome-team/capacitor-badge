@@ -25,6 +25,10 @@ export interface BadgePlugin {
    */
   clear(): Promise<void>;
   /**
+   * Check if the badge count is supported.
+   */
+  isSupported(): Promise<IsSupportedResult>;
+  /**
    * Check permission to display badge.
    */
   checkPermissions(): Promise<PermissionStatus>;
@@ -40,6 +44,10 @@ export interface GetBadgeResult {
 
 export interface SetBadgeOptions {
   count: number;
+}
+
+export interface IsSupportedResult {
+  isSupported: boolean;
 }
 
 export interface PermissionStatus {

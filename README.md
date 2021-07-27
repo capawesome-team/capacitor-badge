@@ -78,6 +78,7 @@ const requestPermissions = async () => {
 * [`increase()`](#increase)
 * [`decrease()`](#decrease)
 * [`clear()`](#clear)
+* [`isSupported()`](#issupported)
 * [`checkPermissions()`](#checkpermissions)
 * [`requestPermissions()`](#requestpermissions)
 * [Interfaces](#interfaces)
@@ -152,6 +153,19 @@ Clear the badge count.
 --------------------
 
 
+### isSupported()
+
+```typescript
+isSupported() => Promise<IsSupportedResult>
+```
+
+Check if the badge count is supported.
+
+**Returns:** <code>Promise&lt;<a href="#issupportedresult">IsSupportedResult</a>&gt;</code>
+
+--------------------
+
+
 ### checkPermissions()
 
 ```typescript
@@ -193,6 +207,13 @@ Request permission to display badge.
 | Prop        | Type                |
 | ----------- | ------------------- |
 | **`count`** | <code>number</code> |
+
+
+#### IsSupportedResult
+
+| Prop              | Type                 |
+| ----------------- | -------------------- |
+| **`isSupported`** | <code>boolean</code> |
 
 
 #### PermissionStatus

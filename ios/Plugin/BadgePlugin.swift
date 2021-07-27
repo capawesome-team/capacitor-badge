@@ -8,7 +8,7 @@ import Capacitor
 @objc(BadgePlugin)
 public class BadgePlugin: CAPPlugin {
     private let implementation = Badge()
-    
+
     @objc override public func requestPermissions(_ call: CAPPluginCall) {
         implementation.requestPermissions(completion: { granted, error in
             guard error == nil else {
@@ -33,9 +33,9 @@ public class BadgePlugin: CAPPlugin {
             "count": count
         ])
     }
-    
+
     @objc func set(_ call: CAPPluginCall) {
-        implementation.requestPermissions(completion: { [weak self] granted, error in
+        implementation.requestPermissions(completion: { [weak self] _, error in
             guard let strongSelf = self else {
                 return
             }
@@ -49,9 +49,9 @@ public class BadgePlugin: CAPPlugin {
             })
         })
     }
-    
+
     @objc func increase(_ call: CAPPluginCall) {
-        implementation.requestPermissions(completion: { [weak self] granted, error in
+        implementation.requestPermissions(completion: { [weak self] _, error in
             guard let strongSelf = self else {
                 return
             }
@@ -64,9 +64,9 @@ public class BadgePlugin: CAPPlugin {
             })
         })
     }
-    
+
     @objc func decrease(_ call: CAPPluginCall) {
-        implementation.requestPermissions(completion: { [weak self] granted, error in
+        implementation.requestPermissions(completion: { [weak self] _, error in
             guard let strongSelf = self else {
                 return
             }
@@ -79,9 +79,9 @@ public class BadgePlugin: CAPPlugin {
             })
         })
     }
-    
+
     @objc func clear(_ call: CAPPluginCall) {
-        implementation.requestPermissions(completion: { [weak self] granted, error in
+        implementation.requestPermissions(completion: { [weak self] _, error in
             guard let strongSelf = self else {
                 return
             }
@@ -93,5 +93,12 @@ public class BadgePlugin: CAPPlugin {
                 call.resolve()
             })
         })
+    }
+
+    @objc func isSupported(_ call: CAPPluginCall) {
+        let isSupported = implementation.isSupported()
+        call.resolve([
+            "isSupported": isSupported
+        ])
     }
 }

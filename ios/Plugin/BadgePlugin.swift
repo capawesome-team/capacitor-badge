@@ -7,10 +7,14 @@ import Capacitor
  */
 @objc(BadgePlugin)
 public class BadgePlugin: CAPPlugin {
-    private let implementation = Badge()
+    private var implementation: Badge?
+    
+    override public func load() {
+        self.implementation = Badge(config: badgeConfig())
+    }
 
     @objc override public func requestPermissions(_ call: CAPPluginCall) {
-        implementation.requestPermissions(completion: { granted, error in
+        implementation?.requestPermissions(completion: { granted, error in
             guard error == nil else {
                 call.reject(error!.localizedDescription)
                 return
@@ -20,7 +24,7 @@ public class BadgePlugin: CAPPlugin {
     }
 
     @objc override public func checkPermissions(_ call: CAPPluginCall) {
-        implementation.checkPermissions(completion: { permission in
+        implementation?.checkPermissions(completion: { permission in
             call.resolve([
                 "display": permission
             ])
@@ -28,14 +32,14 @@ public class BadgePlugin: CAPPlugin {
     }
 
     @objc func get(_ call: CAPPluginCall) {
-        let count = implementation.get()
+        let count = implementation?.get()
         call.resolve([
-            "count": count
+            "count": count ?? 0
         ])
     }
 
     @objc func set(_ call: CAPPluginCall) {
-        implementation.requestPermissions(completion: { [weak self] _, error in
+        implementation?.requestPermissions(completion: { [weak self] _, error in
             guard let strongSelf = self else {
                 return
             }
@@ -44,14 +48,14 @@ public class BadgePlugin: CAPPlugin {
                 return
             }
             let count = call.getInt("count") ?? 0
-            strongSelf.implementation.set(count: count, completion: {
+            strongSelf.implementation?.set(count: count, completion: {
                 call.resolve()
             })
         })
     }
 
     @objc func increase(_ call: CAPPluginCall) {
-        implementation.requestPermissions(completion: { [weak self] _, error in
+        implementation?.requestPermissions(completion: { [weak self] _, error in
             guard let strongSelf = self else {
                 return
             }
@@ -59,14 +63,14 @@ public class BadgePlugin: CAPPlugin {
                 call.reject(error!.localizedDescription)
                 return
             }
-            strongSelf.implementation.increase(completion: {
+            strongSelf.implementation?.increase(completion: {
                 call.resolve()
             })
         })
     }
 
     @objc func decrease(_ call: CAPPluginCall) {
-        implementation.requestPermissions(completion: { [weak self] _, error in
+        implementation?.requestPermissions(completion: { [weak self] _, error in
             guard let strongSelf = self else {
                 return
             }
@@ -74,14 +78,14 @@ public class BadgePlugin: CAPPlugin {
                 call.reject(error!.localizedDescription)
                 return
             }
-            strongSelf.implementation.decrease(completion: {
+            strongSelf.implementation?.decrease(completion: {
                 call.resolve()
             })
         })
     }
 
     @objc func clear(_ call: CAPPluginCall) {
-        implementation.requestPermissions(completion: { [weak self] _, error in
+        implementation?.requestPermissions(completion: { [weak self] _, error in
             guard let strongSelf = self else {
                 return
             }
@@ -89,16 +93,26 @@ public class BadgePlugin: CAPPlugin {
                 call.reject(error!.localizedDescription)
                 return
             }
-            strongSelf.implementation.clear(completion: {
+            strongSelf.implementation?.clear(completion: {
                 call.resolve()
             })
         })
     }
 
     @objc func isSupported(_ call: CAPPluginCall) {
-        let isSupported = implementation.isSupported()
+        let isSupported = implementation?.isSupported()
         call.resolve([
-            "isSupported": isSupported
+            "isSupported": isSupported ?? false
         ])
+    }
+    
+    private func badgeConfig() -> BadgeConfig {
+        var config = BadgeConfig()
+        
+        if let persist = getConfigValue("persist") as? Bool {
+            config.persist = persist
+        }
+        
+        return config
     }
 }

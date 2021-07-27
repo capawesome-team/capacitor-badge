@@ -10,6 +10,7 @@ public class BadgePlugin: CAPPlugin {
     private var implementation: Badge?
 
     override public func load() {
+        NotificationCenter.default.addObserver(self, selector: #selector(onResume), name: UIApplication.willEnterForegroundNotification, object: nil)
         self.implementation = Badge(config: badgeConfig())
     }
 
@@ -106,11 +107,18 @@ public class BadgePlugin: CAPPlugin {
         ])
     }
 
+    @objc private func onResume() {
+        implementation?.handleOnResume()
+    }
+
     private func badgeConfig() -> BadgeConfig {
         var config = BadgeConfig()
 
         if let persist = getConfigValue("persist") as? Bool {
             config.persist = persist
+        }
+        if let autoClear = getConfigValue("autoClear") as? Bool {
+            config.autoClear = autoClear
         }
 
         return config

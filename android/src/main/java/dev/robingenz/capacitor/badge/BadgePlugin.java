@@ -1,6 +1,7 @@
 package dev.robingenz.capacitor.badge;
 
 import com.getcapacitor.JSObject;
+import com.getcapacitor.Logger;
 import com.getcapacitor.Plugin;
 import com.getcapacitor.PluginCall;
 import com.getcapacitor.PluginMethod;
@@ -16,6 +17,12 @@ public class BadgePlugin extends Plugin {
     public void load() {
         BadgeConfig config = getBadgeConfig();
         implementation = new Badge(getContext(), config);
+    }
+
+    @Override
+    public void handleOnResume() {
+        super.handleOnResume();
+        implementation.handleOnResume();
     }
 
     @PluginMethod
@@ -86,8 +93,10 @@ public class BadgePlugin extends Plugin {
     private BadgeConfig getBadgeConfig() {
         BadgeConfig config = new BadgeConfig();
 
-        Boolean persist = getConfig().getBoolean("persist", config.isPersisted());
+        Boolean persist = getConfig().getBoolean("persist", config.getPersist());
         config.setPersist(persist);
+        Boolean autoClear = getConfig().getBoolean("autoClear", config.getAutoClear());
+        config.setAutoClear(autoClear);
 
         return config;
     }

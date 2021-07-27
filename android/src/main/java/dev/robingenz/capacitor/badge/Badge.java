@@ -4,6 +4,7 @@ import static me.leolin.shortcutbadger.ShortcutBadger.isBadgeCounterSupported;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import com.getcapacitor.Logger;
 import me.leolin.shortcutbadger.ShortcutBadger;
 
 public class Badge {
@@ -19,8 +20,20 @@ public class Badge {
         } else {
             this.context = context.getApplicationContext();
         }
-        if (this.config.isPersisted()) {
+        boolean restoreCount = this.config.getPersist();
+        if (restoreCount) {
             restore();
+        }
+    }
+
+    public void handleOnResume() {
+        try {
+            boolean resetCount = this.config.getAutoClear();
+            if (resetCount) {
+                set(0);
+            }
+        } catch (Exception ex) {
+            Logger.error(ex.getLocalizedMessage(), ex);
         }
     }
 
@@ -63,8 +76,12 @@ public class Badge {
     }
 
     private void restore() {
-        int count = get();
-        ShortcutBadger.applyCount(context, count);
+        try {
+            int count = get();
+            ShortcutBadger.applyCount(context, count);
+        } catch (Exception ex) {
+            Logger.error(ex.getLocalizedMessage(), ex);
+        }
     }
 
     private SharedPreferences getPrefs() {

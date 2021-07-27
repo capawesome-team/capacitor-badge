@@ -12,7 +12,13 @@ import Capacitor
         self.config = config
         super.init()
         if config.persist {
-            self.restore()
+            restore()
+        }
+    }
+
+    @objc public func handleOnResume() {
+        if config.autoClear {
+            set(count: 0, completion: {})
         }
     }
 

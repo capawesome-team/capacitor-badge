@@ -94,4 +94,11 @@ public class BadgePlugin: CAPPlugin {
             })
         })
     }
+    
+    @objc func isSupported(_ call: CAPPluginCall) {
+        let isSupported = implementation.isSupported()
+        call.resolve([
+            "isSupported": isSupported
+        ])
+    }
 }

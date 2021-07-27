@@ -70,6 +70,10 @@ import Capacitor
         set(count: 0, completion: completion)
     }
     
+    @objc public func isSupported() -> Bool {
+        return true
+    }
+    
     @objc private func restore() {
         let count = get()
         set(count: count, completion: {})

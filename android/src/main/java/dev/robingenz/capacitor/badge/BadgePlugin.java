@@ -21,6 +21,7 @@ public class BadgePlugin extends Plugin {
 
     @Override
     public void handleOnResume() {
+        super.handleOnResume();
         implementation.handleOnResume();
     }
 

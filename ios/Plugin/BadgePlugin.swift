@@ -8,7 +8,7 @@ import Capacitor
 @objc(BadgePlugin)
 public class BadgePlugin: CAPPlugin {
     private var implementation: Badge?
-    
+
     override public func load() {
         self.implementation = Badge(config: badgeConfig())
     }
@@ -105,14 +105,14 @@ public class BadgePlugin: CAPPlugin {
             "isSupported": isSupported ?? false
         ])
     }
-    
+
     private func badgeConfig() -> BadgeConfig {
         var config = BadgeConfig()
-        
+
         if let persist = getConfigValue("persist") as? Bool {
             config.persist = persist
         }
-        
+
         return config
     }
 }

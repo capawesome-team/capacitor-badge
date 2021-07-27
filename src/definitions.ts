@@ -7,7 +7,7 @@ declare module '@capacitor/cli' {
     /**
      * These configuration values are available:
      */
-     Badge?: {
+    Badge?: {
       /**
        * Configure whether the plugin should restore the counter after a reboot or app restart.
        *
@@ -16,7 +16,7 @@ declare module '@capacitor/cli' {
        * @default true
        * @example true
        */
-       persist?: boolean;
+      persist?: boolean;
     };
   }
 }

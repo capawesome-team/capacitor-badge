@@ -11,7 +11,7 @@ import Capacitor
     init(config: BadgeConfig) {
         self.config = config
         super.init()
-        if (config.persist) {
+        if config.persist {
             self.restore()
         }
     }

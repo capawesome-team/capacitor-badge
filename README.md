@@ -42,9 +42,10 @@ This plugin will use the following project variables (defined in your app’s `v
 
 These configuration values are available:
 
-| Prop          | Type                 | Description                                                                            | Default           |
-| ------------- | -------------------- | -------------------------------------------------------------------------------------- | ----------------- |
-| **`persist`** | <code>boolean</code> | Configure whether the plugin should restore the counter after a reboot or app restart. | <code>true</code> |
+| Prop            | Type                 | Description                                                                                                                | Default            |
+| --------------- | -------------------- | -------------------------------------------------------------------------------------------------------------------------- | ------------------ |
+| **`persist`**   | <code>boolean</code> | Configure whether the plugin should restore the counter after a reboot or app restart. Only available for Android and iOS. | <code>true</code>  |
+| **`autoClear`** | <code>boolean</code> | Configure whether the plugin should reset the counter after resuming the application. Only available for Android and iOS.  | <code>false</code> |
 
 ### Examples
 
@@ -54,7 +55,8 @@ In `capacitor.config.json`:
 {
   "plugins": {
     "Badge": {
-      "persist": true
+      "persist": true,
+      "autoClear": false
     }
   }
 }
@@ -71,6 +73,7 @@ const config: CapacitorConfig = {
   plugins: {
     Badge: {
       persist: true,
+      autoClear: false,
     },
   },
 };

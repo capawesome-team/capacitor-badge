@@ -17,6 +17,15 @@ declare module '@capacitor/cli' {
        * @example true
        */
       persist?: boolean;
+      /**
+       * Configure whether the plugin should reset the counter after resuming the application.
+       *
+       * Only available for Android and iOS.
+       *
+       * @default false
+       * @example false
+       */
+      autoClear?: boolean;
     };
   }
 }

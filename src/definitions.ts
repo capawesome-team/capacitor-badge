@@ -27,7 +27,7 @@ export interface BadgePlugin {
   /**
    * Check if the badge count is supported.
    */
-   isSupported(): Promise<IsSupportedResult>;
+  isSupported(): Promise<IsSupportedResult>;
   /**
    * Check permission to display badge.
    */

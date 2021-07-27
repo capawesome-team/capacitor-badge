@@ -60,7 +60,7 @@ export class BadgeWeb extends WebPlugin implements BadgePlugin {
 
   public async isSupported(): Promise<IsSupportedResult> {
     const result = {
-      isSupported: 'setAppBadge' in navigator
+      isSupported: 'setAppBadge' in navigator,
     };
     return result;
   }

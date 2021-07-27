@@ -70,6 +70,8 @@ const requestPermissions = async () => {
 
 * [`get()`](#get)
 * [`set(...)`](#set)
+* [`increase()`](#increase)
+* [`decrease()`](#decrease)
 * [`clear()`](#clear)
 * [`checkPermissions()`](#checkpermissions)
 * [`requestPermissions()`](#requestpermissions)
@@ -108,6 +110,28 @@ Set the badge count.
 | Param         | Type                                                        |
 | ------------- | ----------------------------------------------------------- |
 | **`options`** | <code><a href="#setbadgeoptions">SetBadgeOptions</a></code> |
+
+--------------------
+
+
+### increase()
+
+```typescript
+increase() => Promise<void>
+```
+
+Increase the badge count.
+
+--------------------
+
+
+### decrease()
+
+```typescript
+decrease() => Promise<void>
+```
+
+Decrease the badge count.
 
 --------------------
 

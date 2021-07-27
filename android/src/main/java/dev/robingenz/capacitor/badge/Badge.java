@@ -10,14 +10,18 @@ public class Badge {
 
     private static final String STORAGE_KEY = "capacitor.badge";
     private Context context;
+    private BadgeConfig config;
 
-    Badge(Context context) {
+    Badge(Context context, BadgeConfig config) {
+        this.config = config;
         if (isBadgeCounterSupported(context)) {
             this.context = context;
         } else {
             this.context = context.getApplicationContext();
         }
-        restore();
+        if (this.config.isPersisted()) {
+            restore();
+        }
     }
 
     public int get() {

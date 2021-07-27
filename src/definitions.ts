@@ -11,6 +11,8 @@ declare module '@capacitor/cli' {
       /**
        * Configure whether the plugin should restore the counter after a reboot or app restart.
        *
+       * Only available for Android and iOS.
+       *
        * @default true
        * @example true
        */

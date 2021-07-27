@@ -14,7 +14,8 @@ public class BadgePlugin extends Plugin {
 
     @Override
     public void load() {
-        implementation = new Badge(getContext());
+        BadgeConfig config = getBadgeConfig();
+        implementation = new Badge(getContext(), config);
     }
 
     @PluginMethod
@@ -80,5 +81,14 @@ public class BadgePlugin extends Plugin {
         } catch (Exception ex) {
             call.reject(ex.getLocalizedMessage());
         }
+    }
+
+    private BadgeConfig getBadgeConfig() {
+        BadgeConfig config = new BadgeConfig();
+
+        Boolean persist = getConfig().getBoolean("persist", config.isPersisted());
+        config.setPersist(persist);
+
+        return config;
     }
 }

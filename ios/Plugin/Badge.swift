@@ -2,14 +2,18 @@ import Foundation
 import Capacitor
 
 @objc public class Badge: NSObject {
+    private var config: BadgeConfig
     private let storageKey = "capacitor.badge"
     private var defaults: UserDefaults {
         return UserDefaults.standard
     }
 
-    override init() {
+    init(config: BadgeConfig) {
+        self.config = config
         super.init()
-        restore()
+        if config.persist {
+            self.restore()
+        }
     }
 
     @objc public func requestPermissions(completion: @escaping (_ granted: Bool, _ error: Error?) -> Void) {

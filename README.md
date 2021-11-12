@@ -296,8 +296,8 @@ On **Android** not all launchers support badges. This plugin uses [ShortcutBadge
 
 ## Changelog
 
-See [CHANGELOG.md](https://github.com/robingenz/capacitor-badge/blob/master/CHANGELOG.md).
+See [CHANGELOG.md](https://github.com/robingenz/capacitor-badge/blob/main/CHANGELOG.md).
 
 ## License
 
-See [LICENSE](https://github.com/robingenz/capacitor-badge/blob/master/LICENSE).
+See [LICENSE](https://github.com/robingenz/capacitor-badge/blob/main/LICENSE).

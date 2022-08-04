@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.0.0](https://github.com/capawesome-team/capacitor-badge/compare/v1.2.1...v2.0.0) (2022-08-04)
+
+
+### ⚠ BREAKING CHANGES
+
+* This plugin was renamed to `@capawesome/capacitor-badge`. Please install the new npm package and run `npx cap sync`.
+* This plugin now only supports Capacitor 4.
+
+### Features
+
+* update to Capacitor 4 ([#34](https://github.com/capawesome-team/capacitor-badge/issues/34)) ([6a062fd](https://github.com/capawesome-team/capacitor-badge/commit/6a062fdb261580f36941f390ff770208224d53dc))
+
+
+* rename to `@capawesome/capacitor-badge` ([#35](https://github.com/capawesome-team/capacitor-badge/issues/35)) ([6f83041](https://github.com/capawesome-team/capacitor-badge/commit/6f830415d2be28adca0e99078be08dcfa07d9b51))
+
 ### [1.2.1](https://github.com/robingenz/capacitor-badge/compare/v1.2.0...v1.2.1) (2022-01-26)
 
 

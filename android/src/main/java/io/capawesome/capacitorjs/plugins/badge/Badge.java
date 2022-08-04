@@ -1,4 +1,4 @@
-package dev.robingenz.capacitor.badge;
+package io.capawesome.capacitorjs.plugins.badge;
 
 import static me.leolin.shortcutbadger.ShortcutBadger.isBadgeCounterSupported;
 

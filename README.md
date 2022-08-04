@@ -1,20 +1,18 @@
 <p align="center"><br><img src="https://user-images.githubusercontent.com/236501/85893648-1c92e880-b7a8-11ea-926d-95355b8175c7.png" width="128" height="128" /></p>
 <h3 align="center">Badge</h3>
-<p align="center"><strong><code>@robingenz/capacitor-badge</code></strong></p>
+<p align="center"><strong><code>@capawesome/capacitor-badge</code></strong></p>
 <p align="center">
   Capacitor plugin to access and update the badge number of the app icon.
 </p>
 
 <p align="center">
   <img src="https://img.shields.io/maintenance/yes/2022?style=flat-square" />
-  <a href="https://github.com/robingenz/capacitor-badge/actions?query=workflow%3A%22CI%22"><img src="https://img.shields.io/github/workflow/status/robingenz/capacitor-badge/CI/main?style=flat-square" /></a>
-  <a href="https://www.npmjs.com/package/@robingenz/capacitor-badge"><img src="https://img.shields.io/npm/l/@robingenz/capacitor-badge?style=flat-square" /></a>
+  <a href="https://github.com/capawesome-team/capacitor-badge/actions?query=workflow%3A%22CI%22"><img src="https://img.shields.io/github/workflow/status/capawesome-team/capacitor-badge/CI/main?style=flat-square" /></a>
+  <a href="https://www.npmjs.com/package/@capawesome/capacitor-badge"><img src="https://img.shields.io/npm/l/@capawesome/capacitor-badge?style=flat-square" /></a>
 <br>
-  <a href="https://www.npmjs.com/package/@robingenz/capacitor-badge"><img src="https://img.shields.io/npm/dw/@robingenz/capacitor-badge?style=flat-square" /></a>
-  <a href="https://www.npmjs.com/package/@robingenz/capacitor-badge"><img src="https://img.shields.io/npm/v/@robingenz/capacitor-badge?style=flat-square" /></a>
-<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-<a href="#contributors-"><img src="https://img.shields.io/badge/all%20contributors-1-orange?style=flat-square" /></a>
-<!-- ALL-CONTRIBUTORS-BADGE:END -->
+  <a href="https://www.npmjs.com/package/@capawesome/capacitor-badge"><img src="https://img.shields.io/npm/dw/@capawesome/capacitor-badge?style=flat-square" /></a>
+  <a href="https://www.npmjs.com/package/@capawesome/capacitor-badge"><img src="https://img.shields.io/npm/v/@capawesome/capacitor-badge?style=flat-square" /></a>
+  <a href="https://github.com/capawesome-team"><img src="https://img.shields.io/badge/part%20of-capawesome-%234f46e5?style=flat-square" /></a>
 </p>
 
 ## Maintainers
@@ -23,10 +21,18 @@
 | ---------- | ----------------------------------------- | --------------------------------------------- |
 | Robin Genz | [robingenz](https://github.com/robingenz) | [@robin_genz](https://twitter.com/robin_genz) |
 
+## Sponsors
+
+This is an MIT-licensed open source project. 
+It can grow thanks to the support by these awesome people. 
+If you'd like to join them, please read more [here](https://github.com/sponsors/capawesome-team).  
+
+<!-- sponsors --><!-- sponsors -->
+
 ## Installation
 
 ```bash
-npm install @robingenz/capacitor-badge
+npm install @capawesome/capacitor-badge
 npx cap sync
 ```
 
@@ -90,7 +96,7 @@ A working example can be found here: [robingenz/capacitor-plugin-demo](https://g
 ## Usage
 
 ```typescript
-import { Badge } from '@robingenz/capacitor-badge';
+import { Badge } from '@capawesome/capacitor-badge';
 
 const get = async () => {
   const result = await Badge.get();
@@ -296,8 +302,8 @@ On **Android** not all launchers support badges. This plugin uses [ShortcutBadge
 
 ## Changelog
 
-See [CHANGELOG.md](https://github.com/robingenz/capacitor-badge/blob/main/CHANGELOG.md).
+See [CHANGELOG.md](https://github.com/capawesome-team/capacitor-badge/blob/main/CHANGELOG.md).
 
 ## License
 
-See [LICENSE](https://github.com/robingenz/capacitor-badge/blob/main/LICENSE).
+See [LICENSE](https://github.com/capawesome-team/capacitor-badge/blob/main/LICENSE).

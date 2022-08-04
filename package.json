@@ -1,5 +1,5 @@
 {
-  "name": "@robingenz/capacitor-badge",
+  "name": "@capawesome/capacitor-badge",
   "version": "1.2.1",
   "description": "Capacitor plugin to access and update the badge number of the app icon.",
   "main": "dist/plugin.cjs.js",
@@ -11,17 +11,27 @@
     "android/build.gradle",
     "dist/",
     "ios/Plugin/",
-    "RobingenzCapacitorBadge.podspec"
+    "CapawesomeCapacitorBadge.podspec"
   ],
   "author": "Robin Genz <mail@robingenz.dev>",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/robingenz/capacitor-badge.git"
+    "url": "git+https://github.com/capawesome-team/capacitor-badge.git"
   },
   "bugs": {
-    "url": "https://github.com/robingenz/capacitor-badge/issues"
+    "url": "https://github.com/capawesome-team/capacitor-badge/issues"
   },
+  "funding": [
+    {
+      "type": "github",
+      "url": "https://github.com/sponsors/capawesome-team/"
+    },
+    {
+      "type": "opencollective",
+      "url": "https://opencollective.com/capawesome"
+    }
+  ],
   "keywords": [
     "capacitor",
     "plugin",
@@ -77,5 +87,8 @@
     "android": {
       "src": "android"
     }
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }

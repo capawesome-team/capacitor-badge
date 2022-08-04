@@ -1,4 +1,4 @@
-package dev.robingenz.capacitor.badge;
+package io.capawesome.capacitorjs.plugins.badge;
 
 public class BadgeConfig {
 

@@ -86,6 +86,8 @@ import Capacitor
 
     @objc private func restore() {
         let count = get()
-        set(count: count, completion: {})
+        if count > 0 {
+            set(count: count, completion: {})
+        }
     }
 }

@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.0.1](https://github.com/capawesome-team/capacitor-badge/compare/v2.0.0...v2.0.1) (2022-09-28)
+
+
+### Bug Fixes
+
+* **ios:** notifications are deleted ([#39](https://github.com/capawesome-team/capacitor-badge/issues/39)) ([4aecd5c](https://github.com/capawesome-team/capacitor-badge/commit/4aecd5cc0e1b061014589306e368c701cf00fb2d))
+
 ## [2.0.0](https://github.com/capawesome-team/capacitor-badge/compare/v1.2.1...v2.0.0) (2022-08-04)
 
 

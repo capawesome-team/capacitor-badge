@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.0.2](https://github.com/capawesome-team/capacitor-badge/compare/v2.0.1...v2.0.2) (2022-10-04)
+
+
+### Bug Fixes
+
+* **ios:** `getConfigValue` is deprecated ([#44](https://github.com/capawesome-team/capacitor-badge/issues/44)) ([f212ac0](https://github.com/capawesome-team/capacitor-badge/commit/f212ac022cbb11dd73b3a180101a00b16e5899c1))
+
 ### [2.0.1](https://github.com/capawesome-team/capacitor-badge/compare/v2.0.0...v2.0.1) (2022-09-28)
 
 

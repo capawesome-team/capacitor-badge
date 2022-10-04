@@ -114,12 +114,8 @@ public class BadgePlugin: CAPPlugin {
     private func badgeConfig() -> BadgeConfig {
         var config = BadgeConfig()
 
-        if let persist = getConfigValue("persist") as? Bool {
-            config.persist = persist
-        }
-        if let autoClear = getConfigValue("autoClear") as? Bool {
-            config.autoClear = autoClear
-        }
+        config.persist = getConfig().getBoolean("persist", config.persist)
+        config.autoClear = getConfig().getBoolean("autoClear", config.autoClear)
 
         return config
     }

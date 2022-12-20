@@ -7,7 +7,7 @@
 
 <p align="center">
   <img src="https://img.shields.io/maintenance/yes/2022?style=flat-square" />
-  <a href="https://github.com/capawesome-team/capacitor-badge/actions?query=workflow%3A%22CI%22"><img src="https://img.shields.io/github/workflow/status/capawesome-team/capacitor-badge/CI/main?style=flat-square" /></a>
+  <a href="https://github.com/capawesome-team/capacitor-badge/actions?query=workflow%3A%22CI%22"><img src="https://img.shields.io/github/actions/workflow/status/capawesome-team/capacitor-badge/ci.yml?branch=main&style=flat-square" /></a>
   <a href="https://www.npmjs.com/package/@capawesome/capacitor-badge"><img src="https://img.shields.io/npm/l/@capawesome/capacitor-badge?style=flat-square" /></a>
 <br>
   <a href="https://www.npmjs.com/package/@capawesome/capacitor-badge"><img src="https://img.shields.io/npm/dw/@capawesome/capacitor-badge?style=flat-square" /></a>

@@ -300,6 +300,8 @@ Request permission to display badge.
 
 On **Android** not all launchers support badges. This plugin uses [ShortcutBadger](https://github.com/leolin310148/ShortcutBadger). All supported launchers are listed [there](https://github.com/leolin310148/ShortcutBadger#supported-launchers).
 
+On **Web**, the app must run as an installed PWA (in the taskbar or dock).
+
 ## Changelog
 
 See [CHANGELOG.md](https://github.com/capawesome-team/capacitor-badge/blob/main/CHANGELOG.md).

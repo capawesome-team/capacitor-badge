@@ -71,7 +71,7 @@ In `capacitor.config.json`:
 In `capacitor.config.ts`:
 
 ```ts
-/// <reference types="@capacitor/badge" />
+/// <reference types="@capawesome/capacitor-badge" />
 
 import { CapacitorConfig } from '@capacitor/cli';
 
